@@ -122,6 +122,8 @@ jobs:
         wget https://raw.githubusercontent.com/Mr-Yuling/lxc-docker/main/LXC-DOCKER-OPEN-CONFIG.sh
         chmod 777 LXC-DOCKER-OPEN-CONFIG.sh
         ./LXC-DOCKER-OPEN-CONFIG.sh android-kernel/arch/arm64/configs/${{ env.KERNEL_CONFIG }} -w
+        sed -i '/SCHED_WALT/d' android-kernel/arch/arm64/configs/${{ env.KERNEL_CONFIG }}
+        echo "# CONFIG_SCHED_WALT is not set" >> android-kernel/arch/arm64/configs/${{ env.KERNEL_CONFIG }}
 
       
     - name: 打入lxc补丁
