@@ -132,8 +132,3 @@ jobs:
         name: Image
         path: kernel_workspace/armbian-kernel/arch/${{ env.ARCH }}/boot/
 
-    - name: 上传Upload AnyKernel3
-      uses: actions/upload-artifact@v3
-      with:
-        name: *.deb
-        path: kernel_workspace/
