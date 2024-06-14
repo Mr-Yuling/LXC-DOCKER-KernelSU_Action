@@ -56,7 +56,7 @@ jobs:
         echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
         echo "DEVICE=$(echo ${{ env.KERNEL_CONFIG }} | sed 's!vendor/!!;s/_defconfig//;s/_user//;s/-perf//')" >> $GITHUB_ENV
         sudo apt-get update
-        sudo apt-get install -y binfmt-support qemu-user-static gcc-10-aarch64-linux-gnu kernel-package fakeroot simg2img img2simg mkbootimg bison git python2 libssl-dev build-essential libncurses5-dev bzip2 
+        sudo apt-get install -y binfmt-support qemu-user-static gcc-aarch64-linux-gnu kernel-package fakeroot simg2img img2simg mkbootimg bison git python2 libssl-dev build-essential libncurses5-dev bzip2 
         mkdir -p $GITHUB_WORKSPACE/kernel_workspace
 
     - name: 切换python2.7
