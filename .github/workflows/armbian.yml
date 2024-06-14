@@ -126,9 +126,15 @@ jobs:
         make defconfig
         make bindeb-pkg -j$(nproc --all)
 
-    - name: 上传Upload Image or Image.gz-dtb
+    - name: 上传Upload Image
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: kernel_workspace/armbian-kernel/arch/${{ env.ARCH }}/boot/
+        path: kernel_workspace/armbian-kernel/arch/${{ env.ARCH }}/boot/Image*
+
+    - name: 上传Upload deb
+      uses: actions/upload-artifact@v3
+      with:
+        name: linux-*
+        path: kernel_workspace/*.deb
 
