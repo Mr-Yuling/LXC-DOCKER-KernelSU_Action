@@ -122,12 +122,10 @@ jobs:
         export CROSS_COMPILE=aarch64-linux-gnu-
         export ARCH=arm64
         export KBUILD_BUILD_HOST=Github-Action
-        export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)        
+        export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
+        make defconfig
         make bindeb-pkg -j$(nproc --all)
 
-
-
-    
     - name: 上传Upload Image or Image.gz-dtb
       uses: actions/upload-artifact@v3
       with:
