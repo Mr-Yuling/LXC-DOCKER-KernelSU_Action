@@ -59,7 +59,7 @@ jobs:
         export KBUILD_BUILD_HOST=Github-Action
         export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
         make ${{ env.KERNEL_CONFIG }}
-        make bindeb-pkg -j$(nproc --all)
+        make LOCALVERSION=-syz-compile bindeb-pkg -j$(nproc --all)
 
     - name: 上传Upload Image
       uses: actions/upload-artifact@v3
