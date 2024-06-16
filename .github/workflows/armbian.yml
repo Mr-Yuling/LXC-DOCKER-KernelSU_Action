@@ -65,7 +65,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: kernel_workspace/armbian-kernel/arch/${{ env.ARCH }}/boot/Image*
+        path: kernel_workspace/armbian-kernel/arch/${{ env.ARCH }}/boot/Image
 
     - name: 上传Upload deb
       uses: actions/upload-artifact@v3
