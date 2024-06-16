@@ -43,6 +43,8 @@ jobs:
         wget https://raw.githubusercontent.com/Mr-Yuling/LXC-DOCKER-KernelSU_Action/main/check_can_config.sh
         chmod 777 check_can_config.sh
         ./check_can_config.sh armbian-kernel/arch/arm64/configs/${{ env.KERNEL_CONFIG }} -w
+        sed -i '/CONFIG_LOCALVERSION_AUTO/d' armbian-kernel/arch/arm64/configs/${{ env.KERNEL_CONFIG }}
+        echo "# CONFIG_LOCALVERSION_AUTO is not set" >> armbian-kernel/arch/arm64/configs/${{ env.KERNEL_CONFIG }}
   
     - name: 设置ccache缓存
       if: env.ENABLE_CCACHE == 'true'
